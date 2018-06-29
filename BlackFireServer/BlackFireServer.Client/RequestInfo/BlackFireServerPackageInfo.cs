@@ -5,20 +5,19 @@
 //----------------------------------------------------
 
 using System;
-using SuperSocket.SocketBase.Protocol;
+using SuperSocket.ProtoBase;
 
-namespace BlackFireServer.Server
+namespace BlackFireServer.Client
 {
-    public sealed class GatewayRequestInfo : IRequestInfo
+    public sealed class BlackFireServerPackageInfo : IPackageInfo<string>
     {
-        public GatewayRequestInfo(string key, string json)
+        public BlackFireServerPackageInfo(string key, string json)
         {
             Key = key ?? throw new ArgumentNullException(nameof(key));
             Json = json ?? throw new ArgumentNullException(nameof(json));
         }
 
         public string Key { get; private set; }
-
         public string Json { get; private set; }
     }
 }

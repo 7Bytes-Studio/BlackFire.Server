@@ -5,11 +5,12 @@
 //----------------------------------------------------
 
 using SuperSocket.SocketBase;
+using SuperSocket.SocketBase.Protocol;
 
 namespace BlackFireServer.Server
 {
-    public class Gateway : AppServer<>
+    public class Gateway : AppServer<BlackFireServerSession,BlackFireServerRequestInfo>
     {
-
+        public Gateway() : base(new DefaultReceiveFilterFactory<BlackFireServerReceiveFilter,BlackFireServerRequestInfo>()) { }
     }
 }

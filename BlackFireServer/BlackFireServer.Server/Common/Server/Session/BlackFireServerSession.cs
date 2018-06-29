@@ -8,8 +8,11 @@ using SuperSocket.SocketBase;
 
 namespace BlackFireServer.Server
 {
-    public class GatewaySession:AppSession<GatewaySession,>
+    public class BlackFireServerSession : AppSession<BlackFireServerSession,BlackFireServerRequestInfo>
     {
-
+        protected override void OnSessionStarted()
+        {
+            base.OnSessionStarted();
+        }
     }
 }
