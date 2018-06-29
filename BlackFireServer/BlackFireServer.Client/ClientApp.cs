@@ -18,7 +18,7 @@ namespace BlackFireServer.Client
             });
 
             s_Client.Connected += Client_Connected;
-            s_Client.ConnectAsync(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 1994));
+            s_Client.ConnectAsync(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 1995));
             Console.Read();
         }
 

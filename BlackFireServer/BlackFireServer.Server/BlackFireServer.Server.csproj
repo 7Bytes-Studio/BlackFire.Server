@@ -91,14 +91,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\Gateway\Gateway.cs" />
+    <Compile Include="App\Business\BusinessApp.cs" />
+    <Compile Include="App\Business\BusinessServer.cs" />
+    <Compile Include="App\Business\ReceiveFilter\BusinessServerReceiveFilter.cs" />
+    <Compile Include="App\Business\RequestInfo\BusinessServerRequestInfo.cs" />
+    <Compile Include="App\Business\Session\BusinessServerSession.cs" />
+    <Compile Include="App\Gateway\ReceiveFilter\GatewayServerReceiveFilter.cs" />
+    <Compile Include="App\Connect\Command\REQUSTADDRESS.cs" />
+    <Compile Include="App\Connect\ReceiveFilter\ConnectServerReceiveFilter.cs" />
+    <Compile Include="App\Connect\ConnectApp.cs" />
+    <Compile Include="App\Connect\ConnectServer.cs" />
+    <Compile Include="App\Connect\RequestInfo\ConnectServerRequestInfo.cs" />
+    <Compile Include="App\Connect\Session\ConnectServerSession.cs" />
+    <Compile Include="App\Register\Command\BUSINESSREGISTERADDRESS.cs" />
+    <Compile Include="App\Register\Command\GATEWAYREGISTERADDRESS.cs" />
+    <Compile Include="App\Register\Command\CONNECTREGISTERADDRESS.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="App\Register\ReceiveFilter\RegisterServerReceiveFilter.cs" />
+    <Compile Include="App\Register\RegisterApp.cs" />
+    <Compile Include="App\Gateway\GatewayServer.cs" />
+    <Compile Include="App\Register\RegisterServer.cs" />
+    <Compile Include="App\Register\RequestInfo\RegisterServerRequestInfo.cs" />
+    <Compile Include="App\Register\Session\RegisterServerSession.cs" />
     <Compile Include="Common\Client\ReceiveFilter\BlackFireClientReceiveFilter.cs" />
     <Compile Include="Common\Client\RequestInfo\BlackFireClientPackageInfo.cs" />
-    <Compile Include="Common\Server\Command\REQUSTADDRESS.cs" />
-    <Compile Include="Common\Server\ReceiveFilter\BlackFireServerReceiveFilter.cs" />
-    <Compile Include="Common\Server\RequestInfo\GatewayRequestInfo.cs" />
-    <Compile Include="Common\Server\Session\BlackFireServerSession.cs" />
+    <Compile Include="App\Gateway\Command\CLIENTREQUSTADDRESS.cs" />
+    <Compile Include="App\Gateway\RequestInfo\GatewayServerRequestInfo.cs" />
+    <Compile Include="App\Gateway\Session\BlackFireServerSession.cs" />
     <Compile Include="App\Gateway\GatewayApp.cs" />
+    <Compile Include="Common\Extension\EncodingExtension.cs" />
+    <Compile Include="Common\Utility\Utility.Encoding.cs" />
+    <Compile Include="Common\Utility\Utility.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +131,9 @@
     <None Include="packages.config" />
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\Server\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

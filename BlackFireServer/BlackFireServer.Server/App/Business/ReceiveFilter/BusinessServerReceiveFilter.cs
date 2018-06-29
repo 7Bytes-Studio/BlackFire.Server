@@ -7,17 +7,17 @@
 using SuperSocket.SocketBase.Protocol;
 using System.Text;
 
-namespace BlackFireServer.Server
+namespace BlackFireServer.Server.Business
 {
-    public class BlackFireServerReceiveFilter : IReceiveFilter<BlackFireServerRequestInfo>
+    public class BusinessServerReceiveFilter : IReceiveFilter<BusinessServerRequestInfo>
     {
         public int LeftBufferSize { get; protected set; }
 
-        public IReceiveFilter<BlackFireServerRequestInfo> NextReceiveFilter => null;
+        public IReceiveFilter<BusinessServerRequestInfo> NextReceiveFilter => null;
 
         public FilterState State { get; protected set; }
 
-        public BlackFireServerRequestInfo Filter(byte[] readBuffer, int offset, int length, bool toBeCopied, out int rest)
+        public BusinessServerRequestInfo Filter(byte[] readBuffer, int offset, int length, bool toBeCopied, out int rest)
         {
             rest = 0;
             LeftBufferSize = length;
@@ -31,10 +31,10 @@ namespace BlackFireServer.Server
                     var s = cmdStr.Split(' ');
                     if (1 <= s.Length)
                     {
-                        return new BlackFireServerRequestInfo(s[0], s[1]);
+                        return new BusinessServerRequestInfo(s[0], s[1]);
                     }
                 }
-                return new BlackFireServerRequestInfo(cmdStr.Trim(), string.Empty);
+                return new BusinessServerRequestInfo(cmdStr.Trim(), string.Empty);
             }
             catch (System.Exception)
             {

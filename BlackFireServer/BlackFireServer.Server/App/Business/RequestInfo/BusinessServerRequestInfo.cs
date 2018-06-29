@@ -7,11 +7,11 @@
 using System;
 using SuperSocket.SocketBase.Protocol;
 
-namespace BlackFireServer.Server
+namespace BlackFireServer.Server.Business
 {
-    public sealed class BlackFireServerRequestInfo : IRequestInfo
+    public sealed class BusinessServerRequestInfo : IRequestInfo
     {
-        public BlackFireServerRequestInfo(string key, string body)
+        public BusinessServerRequestInfo(string key, string body)
         {
             Key = key ?? throw new ArgumentNullException(nameof(key));
             Body = body ?? throw new ArgumentNullException(nameof(body));

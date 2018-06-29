@@ -6,9 +6,9 @@
 
 using SuperSocket.SocketBase;
 
-namespace BlackFireServer.Server
+namespace BlackFireServer.Server.Register
 {
-    public class BlackFireServerSession : AppSession<BlackFireServerSession,BlackFireServerRequestInfo>
+    public class RegisterServerSession : AppSession<RegisterServerSession,RegisterServerRequestInfo>
     {
         protected override void OnSessionStarted()
         {

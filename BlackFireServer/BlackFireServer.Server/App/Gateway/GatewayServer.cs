@@ -7,10 +7,10 @@
 using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Protocol;
 
-namespace BlackFireServer.Server
+namespace BlackFireServer.Server.Gateway
 {
-    public class Gateway : AppServer<BlackFireServerSession,BlackFireServerRequestInfo>
+    public class GatewayServer : AppServer<GatewayServerSession,GatewayServerRequestInfo>
     {
-        public Gateway() : base(new DefaultReceiveFilterFactory<BlackFireServerReceiveFilter,BlackFireServerRequestInfo>()) { }
+        public GatewayServer() : base(new DefaultReceiveFilterFactory<GatewayServerReceiveFilter,GatewayServerRequestInfo>()) { }
     }
 }
