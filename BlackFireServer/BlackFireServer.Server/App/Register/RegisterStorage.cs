@@ -4,10 +4,18 @@
 //Website: www.0x69h.com
 //----------------------------------------------------
 
-namespace BlackFireServer.Server
+using System.Collections.Generic;
+
+namespace BlackFireServer.Server.Register
 {
     public static class RegisterStorage
     {
+        private static ServerEntity Gateway;
+
+        private static Dictionary<string,ServerEntity> s_KVS = new Dictionary<string,ServerEntity>();
+
+
+
 
     }
 }

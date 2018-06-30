@@ -4,14 +4,19 @@
 //Website: www.0x69h.com
 //----------------------------------------------------
 
-namespace BlackFireServer.Server
-{
+using SuperSocket.SocketBase;
 
+namespace BlackFireServer.Server.Register
+{
+    [System.Serializable]
     public class ServerEntity
     {
+
+
         public ServerType ServerType { get; private set; }
         public string Ip { get; private set; }
         public string Port { get; private set; }
+        public AppSession AppSession { get; private set; }
 
     }
 

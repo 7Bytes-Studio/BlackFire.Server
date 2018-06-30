@@ -111,7 +111,9 @@
     <Compile Include="App\Register\RegisterApp.cs" />
     <Compile Include="App\Gateway\GatewayServer.cs" />
     <Compile Include="App\Register\RegisterServer.cs" />
+    <Compile Include="App\Register\RegisterStorage.cs" />
     <Compile Include="App\Register\RequestInfo\RegisterServerRequestInfo.cs" />
+    <Compile Include="App\Register\ServerEntity.cs" />
     <Compile Include="App\Register\Session\RegisterServerSession.cs" />
     <Compile Include="Common\Client\ReceiveFilter\BlackFireClientReceiveFilter.cs" />
     <Compile Include="Common\Client\RequestInfo\BlackFireClientPackageInfo.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="App\Gateway\Session\BlackFireServerSession.cs" />
     <Compile Include="App\Gateway\GatewayApp.cs" />
     <Compile Include="Common\Extension\EncodingExtension.cs" />
+    <Compile Include="Common\Server\ServerType.cs" />
     <Compile Include="Common\Utility\Utility.Encoding.cs" />
     <Compile Include="Common\Utility\Utility.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,8 +135,6 @@
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\Server\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
