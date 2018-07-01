@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackFireServer.Server", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackFireServer.Client", "BlackFireServer.Client\BlackFireServer.Client.csproj", "{20EBB39F-FC72-495F-9690-96B4C7CDAE58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackFireServer.GameLogic", "BlackFireServer.GameLogic\BlackFireServer.GameLogic.csproj", "{4902B7E8-0AE8-4965-83E6-F17D623B636F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{20EBB39F-FC72-495F-9690-96B4C7CDAE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20EBB39F-FC72-495F-9690-96B4C7CDAE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20EBB39F-FC72-495F-9690-96B4C7CDAE58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4902B7E8-0AE8-4965-83E6-F17D623B636F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4902B7E8-0AE8-4965-83E6-F17D623B636F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4902B7E8-0AE8-4965-83E6-F17D623B636F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4902B7E8-0AE8-4965-83E6-F17D623B636F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,13 +18,17 @@ namespace BlackFireServer.Client
             });
 
             s_Client.Connected += Client_Connected;
-            s_Client.ConnectAsync(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 1995));
+            s_Client.ConnectAsync(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 4000));
             Console.Read();
         }
 
         private static void Client_Connected(object sender, EventArgs e)
         {
-            s_Client.Send(Encoding.UTF8.GetBytes("REQUSTADDRESS"));
+            while (true)
+            {
+                System.Threading.Thread.Sleep(1000);
+                s_Client.Send(Encoding.UTF8.GetBytes("Login {\"Account\":\"Password\":\"abc123456789\"}"));
+            }
         }
     }
 }

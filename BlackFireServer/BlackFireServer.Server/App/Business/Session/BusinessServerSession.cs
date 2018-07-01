@@ -4,6 +4,8 @@
 //Website: www.0x69h.com
 //----------------------------------------------------
 
+using BlackFireFramework;
+using BlackFireServer.Server.Interface;
 using SuperSocket.SocketBase;
 
 namespace BlackFireServer.Server.Business
@@ -13,6 +15,17 @@ namespace BlackFireServer.Server.Business
         protected override void OnSessionStarted()
         {
             base.OnSessionStarted();
+            var args = ClientEventArgs.Spawn<ClientEventArgs>();
+            args.Client = new Interface.Client(this);
+            Event.Fire("BusinessServer/OnConnect",this, args);
+        }
+
+        public override void Close()
+        {
+            base.Close();
+            var args = ClientEventArgs.Spawn<ClientEventArgs>();
+            args.Client = new Interface.Client(this);
+            Event.Fire("BusinessServer/OnClose",this, args);
         }
     }
 }

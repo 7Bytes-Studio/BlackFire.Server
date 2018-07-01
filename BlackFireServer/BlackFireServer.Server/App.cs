@@ -1,14 +1,6 @@
 ﻿using BlackFireFramework;
-using BlackFireServer.Client;
 using BlackFireServer.Server.Business;
-using BlackFireServer.Server.Connect;
-using BlackFireServer.Server.Gateway;
-using BlackFireServer.Server.Register;
-using Newtonsoft.Json;
-using SuperSocket.ClientEngine;
 using System;
-using System.Net;
-using System.Text;
 
 namespace BlackFireServer.Server
 {
@@ -34,43 +26,8 @@ namespace BlackFireServer.Server
 
         private static void InitServer(string[] args)
         {
-
-            if (0 < args.Length)
-            {
-                if ("-r" == args[0])
-                {
-                    Console.Title = "RegisterApp";
-                    RegisterApp.Run(args);
-                }
-                else if ("-g" == args[0])
-                {
-                    Console.Title = "GatewayApp";
-                    GatewayApp.Run(args);
-                }
-                else if ("-b" == args[0])
-                {
-                    Console.Title = "BusinessApp";
-                    BusinessApp.Run(args);
-                }
-                else if ("-c" == args[0])
-                {
-                    Console.Title = "ConnectApp";
-                    ConnectApp.Run(args);
-                }
-                Console.ReadKey();
-                return;
-            }
-            else
-            {
-                RegisterApp.Run(args);
-                GatewayApp.Run(args);
-                BusinessApp.Run(args);
-                ConnectApp.Run(args);
-            }
-
+            BusinessApp.Run(args);
         }
-
-
 
         private static readonly object s_God = new object();
         private static float s_RealElapsedDeltaTime = 0.02f;
@@ -80,8 +37,8 @@ namespace BlackFireServer.Server
             TimeSpan timeSpan;
             DateTime dateTime;
             var realElapsedDeltaTime = (int)(s_RealElapsedDeltaTime * 1000);
-
-            Framework.Act(s_God, s_RealElapsedDeltaTime, s_VirsulElapsedDeltaTime);
+            Framework.Born(s_God, s_RealElapsedDeltaTime, s_VirsulElapsedDeltaTime);
+            StartAssemblyManager();
             while (true)
             {
                 dateTime = DateTime.Now;
@@ -91,8 +48,34 @@ namespace BlackFireServer.Server
                 Framework.Act(s_God, s_RealElapsedDeltaTime, s_VirsulElapsedDeltaTime);
                 //if (!Framework.State.Working) break;
             }
+            //ShutdownAssemblyManager();
             //Framework.Die(s_God,s_RealElapsedDeltaTime,s_VirsulElapsedDeltaTime);
         }
+
+        #region ExportedAssembly
+
+        private static string[] m_AssemblyList = new string[] { "BlackFireServer.GameLogic" };
+
+        private static IExportedAssemblyManager m_ExportedAssemblyManager = null;
+
+        private static void StartAssemblyManager()
+        {
+            m_ExportedAssemblyManager = (IExportedAssemblyManager)EntityTree.GetEntityInChildren(typeof(IExportedAssemblyManager));
+            for (int i = 0; i < m_AssemblyList.Length; i++)
+            {
+                m_ExportedAssemblyManager.LoadExportedAssembly(m_AssemblyList[i]);
+            }
+        }
+
+        private static void ShutdownAssemblyManager()
+        {
+            for (int i = 0; i < m_AssemblyList.Length; i++)
+            {
+                m_ExportedAssemblyManager.UnLoadExportAssembly(m_AssemblyList[i]);
+            }
+        }
+
+        #endregion
 
     }
 }

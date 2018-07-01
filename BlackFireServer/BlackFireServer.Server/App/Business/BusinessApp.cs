@@ -1,4 +1,6 @@
-﻿using BlackFireServer.Client;
+﻿using BlackFireFramework;
+using BlackFireServer.Client;
+using BlackFireServer.Server.Interface;
 using SuperSocket.ClientEngine;
 using System;
 using System.Net;
@@ -8,32 +10,25 @@ namespace BlackFireServer.Server.Business
 {
     internal static class BusinessApp
     {
-        private static EasyClient s_Client;
         private static BusinessServer s_business;
 
         internal static void Run(string[] args)
         {
+            Console.Title = "BusinessServer";
+            Redis.Init("127.0.0.1:6379");
             s_business = new BusinessServer();
+            s_business.NewRequestReceived += NewRequestReceived;
             s_business.Setup(4000);
             s_business.Start();
-
-
-            s_Client = new EasyClient();
-            s_Client.Initialize<BlackFireClientPackageInfo>(new BlackFireClientReceiveFilter(), r =>
-            {
-                Console.WriteLine(r.Key + " " + r.Json);
-                if ("UPDATECONNECTADDRESS" == r.Key)
-                {
-                    ServerStorage.UpdateConnectServerList(r.Json);
-                }
-            });
-            s_Client.Connected += Client_Connected;
-            s_Client.ConnectAsync(new IPEndPoint(IPAddress.Parse("127.0.0.1"),1000));
         }
 
-        private static void Client_Connected(object sender, EventArgs e)
+        private static void NewRequestReceived(BusinessServerSession session, BusinessServerRequestInfo requestInfo)
         {
-            s_Client.Send(Encoding.UTF8.GetBytes("BUSINESSREGISTERADDRESS"));
+            var args = ClientEventArgs.Spawn<ClientEventArgs>();
+            args.Client = new Interface.Client(session);
+            args.Key = requestInfo.Key;
+            args.Body = requestInfo.Body;
+            Event.Fire("BusinessServer/OnMessage","BusinessApp",args);
         }
     }
 }

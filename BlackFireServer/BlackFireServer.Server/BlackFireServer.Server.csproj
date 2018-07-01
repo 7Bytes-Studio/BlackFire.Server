@@ -41,6 +41,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net46\StackExchange.Redis.dll</HintPath>
+    </Reference>
     <Reference Include="SuperSocket.ClientEngine, Version=0.10.0.0, Culture=neutral, PublicKeyToken=ee9af13f57f00acc, processorArchitecture=MSIL">
       <HintPath>..\packages\SuperSocket.ClientEngine.0.10.0\lib\net45\SuperSocket.ClientEngine.dll</HintPath>
     </Reference>
@@ -68,6 +71,7 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.NameResolution, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.NameResolution.4.3.0\lib\net46\System.Net.NameResolution.dll</HintPath>
     </Reference>
@@ -99,46 +103,28 @@
   <ItemGroup>
     <Compile Include="App\Business\BusinessApp.cs" />
     <Compile Include="App\Business\BusinessServer.cs" />
+    <Compile Include="App\Business\Command\Login.cs" />
     <Compile Include="App\Business\ReceiveFilter\BusinessServerReceiveFilter.cs" />
     <Compile Include="App\Business\RequestInfo\BusinessServerRequestInfo.cs" />
     <Compile Include="App\Business\Session\BusinessServerSession.cs" />
-    <Compile Include="App\Gateway\ReceiveFilter\GatewayServerReceiveFilter.cs" />
-    <Compile Include="App\Connect\Command\REQUSTADDRESS.cs" />
-    <Compile Include="App\Connect\ReceiveFilter\ConnectServerReceiveFilter.cs" />
-    <Compile Include="App\Connect\ConnectApp.cs" />
-    <Compile Include="App\Connect\ConnectServer.cs" />
-    <Compile Include="App\Connect\RequestInfo\ConnectServerRequestInfo.cs" />
-    <Compile Include="App\Connect\Session\ConnectServerSession.cs" />
-    <Compile Include="App\Register\Command\BUSINESSREGISTERADDRESS.cs" />
-    <Compile Include="App\Register\Command\GATEWAYREGISTERADDRESS.cs" />
-    <Compile Include="App\Register\Command\CONNECTREGISTERADDRESS.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="App\Register\ReceiveFilter\RegisterServerReceiveFilter.cs" />
-    <Compile Include="App\Register\RegisterApp.cs" />
-    <Compile Include="App\Gateway\GatewayServer.cs" />
-    <Compile Include="App\Register\RegisterServer.cs" />
-    <Compile Include="App\Register\RegisterStorage.cs" />
-    <Compile Include="App\Register\RequestInfo\RegisterServerRequestInfo.cs" />
-    <Compile Include="Common\Server\ServerEntity.cs" />
-    <Compile Include="App\Register\Session\RegisterServerSession.cs" />
     <Compile Include="Common\Client\ReceiveFilter\BlackFireClientReceiveFilter.cs" />
     <Compile Include="Common\Client\RequestInfo\BlackFireClientPackageInfo.cs" />
-    <Compile Include="App\Gateway\Command\CLIENTREQUSTADDRESS.cs" />
-    <Compile Include="App\Gateway\RequestInfo\GatewayServerRequestInfo.cs" />
-    <Compile Include="App\Gateway\Session\GatewayServerSession.cs" />
-    <Compile Include="App\Gateway\GatewayApp.cs" />
     <Compile Include="Common\Extension\EncodingExtension.cs" />
-    <Compile Include="Common\Server\Command.cs" />
-    <Compile Include="Common\Server\ServerStorage.cs" />
-    <Compile Include="Common\Server\ServerType.cs" />
+    <Compile Include="Common\Server\Redis.cs" />
     <Compile Include="Common\Utility\Utility.Encoding.cs" />
     <Compile Include="Common\Utility\Utility.partial.cs" />
+    <Compile Include="Interface\Base\IClient.cs" />
+    <Compile Include="Interface\Base\IServerEvent.cs" />
+    <Compile Include="Interface\Impl\Client\Client.cs" />
+    <Compile Include="Interface\Impl\Client\ClientEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Config\log4net.config" />
     <None Include="Config\log4net.unix.config" />
+    <Compile Include="Interface\Base\IClient.Extension.cs" />
     <None Include="packages.config" />
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />
