@@ -32,8 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlackFireFramework">
+      <HintPath>..\packages\BlackFireFramework.1.0.0\BlackFireFramework.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SuperSocket.ClientEngine, Version=0.10.0.0, Culture=neutral, PublicKeyToken=ee9af13f57f00acc, processorArchitecture=MSIL">
       <HintPath>..\packages\SuperSocket.ClientEngine.0.10.0\lib\net45\SuperSocket.ClientEngine.dll</HintPath>
@@ -113,15 +119,17 @@
     <Compile Include="App\Register\RegisterServer.cs" />
     <Compile Include="App\Register\RegisterStorage.cs" />
     <Compile Include="App\Register\RequestInfo\RegisterServerRequestInfo.cs" />
-    <Compile Include="App\Register\ServerEntity.cs" />
+    <Compile Include="Common\Server\ServerEntity.cs" />
     <Compile Include="App\Register\Session\RegisterServerSession.cs" />
     <Compile Include="Common\Client\ReceiveFilter\BlackFireClientReceiveFilter.cs" />
     <Compile Include="Common\Client\RequestInfo\BlackFireClientPackageInfo.cs" />
     <Compile Include="App\Gateway\Command\CLIENTREQUSTADDRESS.cs" />
     <Compile Include="App\Gateway\RequestInfo\GatewayServerRequestInfo.cs" />
-    <Compile Include="App\Gateway\Session\BlackFireServerSession.cs" />
+    <Compile Include="App\Gateway\Session\GatewayServerSession.cs" />
     <Compile Include="App\Gateway\GatewayApp.cs" />
     <Compile Include="Common\Extension\EncodingExtension.cs" />
+    <Compile Include="Common\Server\Command.cs" />
+    <Compile Include="Common\Server\ServerStorage.cs" />
     <Compile Include="Common\Server\ServerType.cs" />
     <Compile Include="Common\Utility\Utility.Encoding.cs" />
     <Compile Include="Common\Utility\Utility.partial.cs" />

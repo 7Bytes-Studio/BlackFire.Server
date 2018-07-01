@@ -8,11 +8,12 @@ using SuperSocket.SocketBase.Command;
 
 namespace BlackFireServer.Server.Connect
 {
-    public sealed class CLIENTREQUSTADDRESS : CommandBase<ConnectServerSession,ConnectServerRequestInfo>
+    public sealed class CLIENTMESSAGE : CommandBase<ConnectServerSession,ConnectServerRequestInfo>
     {
         public override void ExecuteCommand(ConnectServerSession session,ConnectServerRequestInfo requestInfo)
         {
-            session.TrySend("RESPONSEADDRESS");
+            session.TrySend("CLIENTMESSAGE");
+
         }
     }
 }

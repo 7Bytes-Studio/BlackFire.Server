@@ -14,7 +14,7 @@ namespace BlackFireServer.Server.Connect
         internal static void Run(string[] args)
         {
             s_Connect = new ConnectServer();
-            s_Connect.Setup(3000);
+            s_Connect.Setup(new Random().Next(3000,4000));
             s_Connect.Start();
 
             s_Client = new EasyClient();

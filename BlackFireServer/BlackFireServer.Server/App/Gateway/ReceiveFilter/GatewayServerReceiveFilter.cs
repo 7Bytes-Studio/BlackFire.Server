@@ -25,13 +25,13 @@ namespace BlackFireServer.Server.Gateway
             try
             {
                 var cmdStr = Encoding.UTF8.GetString(readBuffer, offset, length);
-                //System.Console.Write(cmdStr);
+                //System.Console.Write("接受到的数据是: "+cmdStr);
                 if (cmdStr.Contains(" "))
                 {
                     var s = cmdStr.Split(' ');
                     if (1 <= s.Length)
                     {
-                        return new GatewayServerRequestInfo(s[0], s[1]);
+                        return new GatewayServerRequestInfo(s[0], cmdStr.Substring(s[0].Length));
                     }
                 }
                 return new GatewayServerRequestInfo(cmdStr.Trim(), string.Empty);

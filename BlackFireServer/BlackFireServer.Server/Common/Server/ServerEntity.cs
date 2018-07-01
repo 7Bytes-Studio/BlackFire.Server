@@ -5,19 +5,19 @@
 //----------------------------------------------------
 
 using SuperSocket.SocketBase;
+using System;
 
-namespace BlackFireServer.Server.Register
+namespace BlackFireServer.Server
 {
     [System.Serializable]
     public class ServerEntity
     {
-
-
-        public ServerType ServerType { get; private set; }
-        public string Ip { get; private set; }
-        public string Port { get; private set; }
-        public AppSession AppSession { get; private set; }
-
+        public ServerType ServerType;
+        public string Ip;
+        public int Port;
+        public float load;//负载0f~1f
+        [NonSerialized]
+        public object AppSession;
     }
 
 }

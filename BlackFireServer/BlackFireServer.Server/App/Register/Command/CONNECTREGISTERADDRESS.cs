@@ -4,6 +4,7 @@
 //Website: www.0x69h.com
 //----------------------------------------------------
 
+using BlackFireServer.Server.Gateway;
 using SuperSocket.SocketBase.Command;
 using System.Text;
 
@@ -13,8 +14,9 @@ namespace BlackFireServer.Server.Register
     {
         public override void ExecuteCommand(RegisterServerSession session,RegisterServerRequestInfo requestInfo)
         {
-            var data = "REGISTERRESPONSEADDRESS {返回基本状态给连接服务器}".ToUTF8Bytes(); 
-            session.Send(data,0, data.Length);
+            RegisterStorage.SetConnectServerEntity(session);
+            Command.SendRegisterCommand_Welcome(session);
+            Command.SendRegisterCommand_UpdateAddress();
         }
     }
 }

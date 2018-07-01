@@ -31,7 +31,7 @@ namespace BlackFireServer.Server.Connect
                     var s = cmdStr.Split(' ');
                     if (1 <= s.Length)
                     {
-                        return new ConnectServerRequestInfo(s[0], s[1]);
+                        return new ConnectServerRequestInfo(s[0], cmdStr.Substring(s[0].Length));
                     }
                 }
                 return new ConnectServerRequestInfo(cmdStr.Trim(), string.Empty);

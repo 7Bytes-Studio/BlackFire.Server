@@ -22,6 +22,10 @@ namespace BlackFireServer.Server.Business
             s_Client.Initialize<BlackFireClientPackageInfo>(new BlackFireClientReceiveFilter(), r =>
             {
                 Console.WriteLine(r.Key + " " + r.Json);
+                if ("UPDATECONNECTADDRESS" == r.Key)
+                {
+                    ServerStorage.UpdateConnectServerList(r.Json);
+                }
             });
             s_Client.Connected += Client_Connected;
             s_Client.ConnectAsync(new IPEndPoint(IPAddress.Parse("127.0.0.1"),1000));

@@ -12,8 +12,7 @@ namespace BlackFireServer.Server.Register
     {
         public override void ExecuteCommand(RegisterServerSession session,RegisterServerRequestInfo requestInfo)
         {
-            var data = "REGISTERRESPONSEADDRESS {返回基本状态给业务服务器}".ToUTF8Bytes();
-            session.Send(data, 0, data.Length);
+            Command.SendRegisterCommand(session,"REGISTERRESPONSEADDRESS", "{\"msg:\"\"Welcome!\"}");
         }
     }
 }

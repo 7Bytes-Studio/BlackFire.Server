@@ -31,7 +31,7 @@ namespace BlackFireServer.Server.Business
                     var s = cmdStr.Split(' ');
                     if (1 <= s.Length)
                     {
-                        return new BusinessServerRequestInfo(s[0], s[1]);
+                        return new BusinessServerRequestInfo(s[0],cmdStr.Substring(s[0].Length));
                     }
                 }
                 return new BusinessServerRequestInfo(cmdStr.Trim(), string.Empty);
